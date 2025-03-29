@@ -1,0 +1,190 @@
+/* Base styles */
+body {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.brand {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2c3e50; /* Darker color for better contrast */
+  margin: 20px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+}
+
+/* Scoreboard styles */
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Increased gap for better spacing */
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.scoreboard-row {
+  display: flex;
+  gap: 10px; /* Increased gap for better spacing */
+}
+
+.scoreboard-letter {
+  width: 60px; /* Slightly larger for better touch targets */
+  height: 60px;
+  border: 2px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #ffffff;
+  color: #2c3e50; /* Darker color for better contrast */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+.scoreboard-letter.correct {
+  background-color: #6aaa64; /* Green for correct letters */
+  color: white;
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+.scoreboard-letter.close {
+  background-color: #c9b458; /* Yellow for close letters */
+  color: white;
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+.scoreboard-letter.wrong {
+  background-color: #787c7e; /* Gray for wrong letters */
+  color: white;
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+.scoreboard-letter.invalid {
+  animation: shake 0.5s; /* Shake animation for invalid words */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Virtual keyboard styles */
+.virtual-keyboard {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Increased gap for better spacing */
+  align-items: center;
+  max-width: 100%; /* Prevent the keyboard from overflowing */
+}
+
+.keyboard-row {
+  display: flex;
+  gap: 10px; /* Increased gap for better spacing */
+  justify-content: center; /* Center buttons in the row */
+  flex-wrap: wrap; /* Allow buttons to wrap to the next line if needed */
+}
+
+.virtual-keyboard button {
+  padding: 15px; /* Larger padding for better touch targets */
+  font-size: 1.2rem; /* Larger font size for better readability */
+  font-weight: bold;
+  border: 2px solid #ccc;
+  background-color: #ffffff;
+  color: #2c3e50; /* Darker color for better contrast */
+  cursor: pointer;
+  text-transform: uppercase;
+  min-width: 50px; /* Minimum width for buttons */
+  flex: 1; /* Allow buttons to grow and fill available space */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+  touch-action: manipulation; /* Prevent double-tap zoom */
+}
+
+.virtual-keyboard button:hover {
+  background-color: #e0e0e0; /* Light gray on hover */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.enter-button {
+  flex: 2; /* Make the Enter button wider */
+  max-width: 200px; /* Limit the maximum width */
+  background-color: #6aaa64; /* Green for the Enter button */
+  color: white;
+}
+
+.enter-button:hover {
+  background-color: #5a995a; /* Darker green on hover */
+}
+
+/* Win Display Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Darker overlay for better contrast */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure it's on top of everything */
+  animation: fadeIn 0.5s ease; /* Fade-in animation */
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px; /* Increased padding for better spacing */
+  border-radius: 15px; /* Rounded corners */
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  animation: slideIn 0.5s ease; /* Slide-in animation */
+}
+
+.modal-content h2 {
+  font-size: 2rem;
+  color: #2c3e50; /* Darker color for better contrast */
+  margin-bottom: 20px;
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  color: #787c7e; /* Gray for secondary text */
+  margin-bottom: 20px;
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  background-color: #6aaa64; /* Green for the button */
+  color: white;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.modal-content button:hover {
+  background-color: #5a995a; /* Darker green on hover */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); }
+  to { transform: translateY(0); }
+}
